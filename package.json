@@ -1,0 +1,14 @@
+{
+  "name": "natural-fungible-token-market",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Research-only environmental asset market sandbox connected conceptually to NaFT dMRV",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "demo": "node src/cli.mjs examples/synthetic-market.json"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
