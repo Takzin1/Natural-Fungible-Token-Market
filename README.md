@@ -9,7 +9,7 @@
 - Original dMRV upstream: [Takzin1/NaFT](https://github.com/Takzin1/NaFT).
 - Existing separate tokenization research preview: [NaFT IEEE Edition](https://github.com/Takzin1/NaFT-IEEE_Climate_Hackathon_Edition).
 - **No source code or datasets have been copied from those repositories into NFTM.** The first version uses only a synthetic SHA-256 placeholder and an independently authored order-matching simulation.
-- Planned integration: a versioned, **read-only** NaFT research receipt adapter. A valid dMRV receipt is *not* evidence of an issued, transferable credit. A separately verified registry/rights layer would be necessary for production.
+- Implemented first integration: a versioned, **offline, read-only** NaFT BlueCarbon research receipt adapter. See [connection runbook](docs/NAFT_READONLY_CONNECTION.md). A valid dMRV receipt is *not* evidence of an issued, transferable credit. A separately verified registry/rights layer would be necessary for production.
 
 ## What works today
 
@@ -18,6 +18,7 @@
 - Denial of already-retired, unlocked, or duplicate-claim synthetic registry entries.
 - Duplicate listing and duplicate retirement protections in the mock model.
 - Reproducible machine-readable JSON receipt with SHA-256 checksum.
+- Offline read-only NaFT BlueCarbon bridge receipt input with explicitly pinned receipt SHA-256. No source estimate becomes an issued asset.
 - Zero external network calls, keys, wallets, RPC transactions, real custody, or real payments.
 
 ## Quick start
@@ -27,6 +28,7 @@ Requires Node.js 20+; no npm install or API key required.
 ```sh
 npm test
 npm run demo
+npm run demo:connected   # schema-compatible synthetic NaFT receipt + market
 # alternatively:
 node src/cli.mjs examples/synthetic-market.json
 ```
@@ -35,7 +37,7 @@ node src/cli.mjs examples/synthetic-market.json
 
 ## Future research
 
-1. Generalized `naft-evidence-receipt/1` read-only ingestion with versioned schema.
+1. Extend the existing `naft-edition-bridge-receipt/1` BlueCarbon intake to other NaFT Core research output schemas (not yet implemented).
 2. Explicit separation of research estimates, external accreditation, registered legal rights, and market representations.
 3. A sandbox order book and web UI for simulated asset offers and matching.
 4. Multiple reference pricing sources and deliberate missing/stale-price handling.

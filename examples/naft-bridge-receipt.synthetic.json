@@ -1,0 +1,42 @@
+{
+  "schema": "naft-edition-bridge-receipt/1",
+  "edition": "BLUE_CARBON",
+  "source_repository": "Takzin1/NaFT_BlueCarbon_MRV_Edition",
+  "source_schema": "0.3.0",
+  "source_package_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "project_id": "SYNTHETIC-NAFT-BRIDGE-001",
+  "methodology": {
+    "id": "NAFT-RESEARCH",
+    "version": "0.1.0",
+    "status": "RESEARCH_REFERENCE_ONLY"
+  },
+  "claim_count": 1,
+  "claims": [
+    {
+      "claim_id": "SYNTHETIC-CLAIM-01",
+      "habitat": "seagrass",
+      "fingerprint": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "readiness": "RESEARCH_ESTIMATE",
+      "research_estimate_tco2e": 1.08,
+      "evidence_ids": [
+        "SYNTHETIC-EVIDENCE-1"
+      ],
+      "observation_rows": 0
+    }
+  ],
+  "total_research_estimate_tco2e": 1.08,
+  "replay": {
+    "source_fingerprints": "MATCH",
+    "research_arithmetic": "MATCH",
+    "monitoring_arithmetic": "MATCH",
+    "package_hash": "MATCH"
+  },
+  "scientific_validation": false,
+  "evidence_origin_verified": false,
+  "formal_certification": false,
+  "certified_tco2e": null,
+  "issued_credits": null,
+  "web3_anchor_status": "NOT_SUBMITTED",
+  "warning": "SCHEMA-COMPATIBLE SYNTHETIC TEST FIXTURE ONLY. Not emitted by NaFT Core and not scientific verification.",
+  "receipt_hash": "98bfce55a7f6cb52540816e63d86135f911e1d1e793ec6a6ca4bc1803a0e36eb"
+}
