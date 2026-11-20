@@ -1,0 +1,33 @@
+{
+  "schema": "nftm-synthetic-market/1",
+  "source": {
+    "naft_repository": "Takzin1/NaFT",
+    "evidence_package_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "verification_status": "RESEARCH_ONLY",
+    "formal_certification": false
+  },
+  "market": {
+    "id": "NFTM-SIMULATION-ONLY",
+    "real_orders_enabled": false,
+    "real_payments_enabled": false
+  },
+  "registry": {
+    "id": "NFTM-SYNTHETIC-REGISTRY",
+    "entries": [
+      {"serial":"SYN-BC-001","state":"MOCK_ISSUED","custody":"MOCK_LOCKED","duplicate_claim":false},
+      {"serial":"SYN-BC-002","state":"MOCK_RETIRED","custody":"MOCK_LOCKED","duplicate_claim":false},
+      {"serial":"SYN-AG-003","state":"MOCK_ISSUED","custody":"MOCK_UNLOCKED","duplicate_claim":false}
+    ]
+  },
+  "fx": {
+    "source": "USER_ASSUMPTION_NOT_MARKET_DATA",
+    "jpy_per_usd": "150.25",
+    "usd_per_simulated_unit": "1.00"
+  },
+  "orders": [
+    {"id":"ORD-S1","side":"SELL","serial":"SYN-BC-001","limit_price_jpy":"3000","quantity":1},
+    {"id":"ORD-B1","side":"BUY","serial":"SYN-BC-001","limit_price_jpy":"3100","quantity":1},
+    {"id":"ORD-S2","side":"SELL","serial":"SYN-BC-002","limit_price_jpy":"2800","quantity":1}
+  ],
+  "retire_after_match": ["SYN-BC-001","SYN-BC-002"]
+}
