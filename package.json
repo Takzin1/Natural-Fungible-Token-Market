@@ -6,7 +6,8 @@
   "description": "Research-only environmental asset market sandbox connected conceptually to NaFT dMRV",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "demo": "node src/cli.mjs examples/synthetic-market.json"
+    "demo": "node src/cli.mjs examples/synthetic-market.json",
+    "demo:connected": "node scripts/connect-naft.mjs examples/naft-bridge-receipt.synthetic.json examples/synthetic-market.json 98bfce55a7f6cb52540816e63d86135f911e1d1e793ec6a6ca4bc1803a0e36eb"
   },
   "engines": {
     "node": ">=20"
