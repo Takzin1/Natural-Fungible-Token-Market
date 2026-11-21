@@ -35,7 +35,7 @@ function canonical(value) {
   if (isObject(value)) return `{${Object.keys(value).sort().map(k=>`${JSON.stringify(k)}:${canonical(value[k])}`).join(',')}}`;
   return JSON.stringify(value);
 }
-function digest(value) {
+export function digest(value) {
   return createHash('sha256').update(canonical(value)).digest('hex');
 }
 /**
@@ -50,7 +50,20 @@ export function quoteSimulatedStableUnits(priceJPY, jpyPerUSD, usdPerUnit) {
   return microToDecimal(amount * 100000000000000n / (rate * peg));
 }
 
-export function runMarketScenario(input) {
+// Quote or execute a reference calculation using the same legacy conversion.
+export function settlementReference(jpy,terms) {
+  const q = terms.quote;
+  const convert = (fx,peg) => jpy === '0' ? '0' : quoteSimulatedStableUnits(jpy,fx,peg);
+  const gross = convert(q.quote_currency === 'JPY' ? '1' : q.fx_rate,q.peg_reference);
+  const [whole,fraction=''] = gross.split('.');
+  const micro = BigInt(whole + fraction.padEnd(6,'0'));
+  const fee = micro * BigInt(terms.fee_bps) / 10000n;
+  return {receipt_sha256:terms.receipt_sha256,asset_symbol:q.asset_symbol,execution_jpy:jpy,
+    execution_usd:convert(q.fx_rate,'1'),gross_amount:gross,estimated_fee:microToDecimal(fee),
+    net_amount:microToDecimal(micro-fee),status:'SIMULATED_NO_PAYMENT'};
+}
+
+export function runMarketScenario(input, listingTerms = null) {
   requireValue(isObject(input) && JSON.stringify(input).length <= 200000, 'INVALID_SCENARIO');
   exactKeys(input, ['schema','source','market','registry','fx','orders','retire_after_match'], 'SCENARIO_FIELDS');
   requireValue(input.schema === 'nftm-synthetic-market/1', 'UNKNOWN_SCHEMA');
@@ -105,6 +118,11 @@ export function runMarketScenario(input) {
       blockedOrders.push({order_id:order.id, reason:'SYNTHETIC_REGISTRY_GATE_FAILED'});
       continue;
     }
+    const terms = listingTerms?.get(order.serial);
+    if (listingTerms && terms?.state !== 'OPEN_SIMULATION') {
+      blockedOrders.push({order_id:order.id, reason:terms?.state ?? 'NO_QUOTE_BINDING'});
+      continue;
+    }
     const prepared = {...order, sequence, price};
     if (order.side === 'SELL') {
       if (validSells.has(order.serial)) {
@@ -125,10 +143,13 @@ export function runMarketScenario(input) {
     if (!buyer) {pendingOrders.push(sell.id);continue;}
     const stableUnits = quoteSimulatedStableUnits(
       sell.limit_price_jpy, input.fx.jpy_per_usd, input.fx.usd_per_simulated_unit);
+    const terms = listingTerms?.get(serial);
+    const settlement = terms ? settlementReference(sell.limit_price_jpy,terms) : null;
     matches.push({
       serial, sell_order_id:sell.id, buy_order_id:buyer.id,
       execution_price_jpy:sell.limit_price_jpy,
-      simulated_stable_units:stableUnits, settlement_status:'SIMULATED_NO_PAYMENT'
+      simulated_stable_units:stableUnits, settlement_status:'SIMULATED_NO_PAYMENT',
+      ...(settlement && {valuation_settlement:settlement})
     });
   }
   matches.sort((a,b)=>a.serial.localeCompare(b.serial));

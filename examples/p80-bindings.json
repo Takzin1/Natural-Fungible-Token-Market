@@ -1,0 +1,9 @@
+[
+  {
+    "serial": "SYN-BC-001",
+    "asset_id": "P9-DEMO-07",
+    "valuation_scenario_id": "p80-demo",
+    "initial_evidence_package_sha256": "f3897faccf2ec7aa3d27e4bdaee4fb433dd3c9c1270b3541e13ba32a4570fa89",
+    "current_receipt_sha256": "9340b70af983a29ca66b3a17fa7a825d76074ba7e403d0d5867816dc01d33cf3"
+  }
+]

@@ -54,3 +54,13 @@ See [architecture](docs/ARCHITECTURE.md) and [research roadmap](docs/ROADMAP.md)
 NaFT upstream is separately licensed. If any NaFT source is ever incorporated into NFTM, its applicable copyright and license notices must be preserved. Third-party data and methodology rights require separate checks.
 
 This repository is a research prototype, not legal, investment or environmental certification advice.
+
+## P80 模擬注文板を開く
+
+```sh
+npm test
+npm run demo:valuation
+node scripts/valuation-book.mjs examples/p80-scenario.json examples/p80-bindings.json examples/p80-history.json 2026-11-21T00:00:00.000Z --html > /tmp/p80-market.html
+```
+
+HTMLをブラウザで開くと、NaFTの3,360円の参考評価と、独立した合成シリアルの3,000円の模擬約定を確認できます。入力・停止条件・履歴更新は [P80接続仕様](docs/P80_VALUATION.md) を参照してください。

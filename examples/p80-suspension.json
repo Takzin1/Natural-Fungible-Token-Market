@@ -1,0 +1,79 @@
+{
+  "schema": "naft-environmental-valuation/1",
+  "calculation_version": "1.0.0",
+  "mode": "SIMULATION_ONLY",
+  "classification": "RESEARCH_SCENARIO_ONLY",
+  "formal_certification": false,
+  "certified_quantity": null,
+  "label": "仮定に基づく参考値",
+  "as_of": "2026-11-21T00:01:00.000Z",
+  "previous_receipt_sha256": "9340b70af983a29ca66b3a17fa7a825d76074ba7e403d0d5867816dc01d33cf3",
+  "input": {
+    "asset": {
+      "asset_id": "P9-DEMO-07",
+      "asset_category": "AGRICULTURE",
+      "methodology_id": "AG-005",
+      "methodology_version": "AG-005 v1.0",
+      "evidence_package_sha256": "f3897faccf2ec7aa3d27e4bdaee4fb433dd3c9c1270b3541e13ba32a4570fa89",
+      "source_record_sha256": "36a8693eb04b30c8c65561d303fbef6dca676eebdfd429a8bd1a3d5b159d9501",
+      "verification_status": "REVOKED",
+      "quantity": "2.24",
+      "quantity_unit": "tCO2e",
+      "rights_status": "UNVERIFIED"
+    },
+    "valuation_scenario_id": "p80-demo",
+    "asset_symbol": "SIM-USD",
+    "fee_bps": "25",
+    "quantity_override": null,
+    "snapshot": {
+      "price": {
+        "pair": "JPY/tCO2e",
+        "source": "P80 synthetic scenario",
+        "source_kind": "SYNTHETIC",
+        "observed_at": "2026-11-21T00:00:00.000Z",
+        "as_of": "2026-11-21T00:00:00.000Z",
+        "expires_at": "2026-11-21T01:00:00.000Z",
+        "market_price": null,
+        "fixed_redemption_value": null,
+        "user_assumption": "1500",
+        "selected": "user_assumption",
+        "conflicting": false
+      },
+      "fx": {
+        "pair": "JPY/USD",
+        "source": "P80 synthetic scenario",
+        "source_kind": "SYNTHETIC",
+        "observed_at": "2026-11-21T00:00:00.000Z",
+        "as_of": "2026-11-21T00:00:00.000Z",
+        "expires_at": "2026-11-21T01:00:00.000Z",
+        "market_price": null,
+        "fixed_redemption_value": null,
+        "user_assumption": "150.25",
+        "selected": "user_assumption",
+        "conflicting": false
+      },
+      "peg": {
+        "pair": "USD/SIM-USD",
+        "source": "P80 synthetic scenario",
+        "source_kind": "SYNTHETIC",
+        "observed_at": "2026-11-21T00:00:00.000Z",
+        "as_of": "2026-11-21T00:00:00.000Z",
+        "expires_at": "2026-11-21T01:00:00.000Z",
+        "market_price": null,
+        "fixed_redemption_value": null,
+        "user_assumption": "1",
+        "selected": "user_assumption",
+        "conflicting": false
+      }
+    }
+  },
+  "states": {
+    "evidence": "BLOCKED_EVIDENCE",
+    "price": "VALID",
+    "fx": "VALID",
+    "peg": "VALID"
+  },
+  "status": "BLOCKED",
+  "quote": null,
+  "receipt_sha256": "0ebcfa4b5f2f1ff9f4a8a4f12a0bffeab7cfa5322ce3d4bf0e8d5a7f24151c85"
+}

@@ -1,0 +1,114 @@
+[
+  [
+    {
+      "schema": "naft-environmental-valuation/1",
+      "calculation_version": "1.0.0",
+      "mode": "SIMULATION_ONLY",
+      "classification": "RESEARCH_SCENARIO_ONLY",
+      "formal_certification": false,
+      "certified_quantity": null,
+      "label": "仮定に基づく参考値",
+      "as_of": "2026-11-21T00:00:00.000Z",
+      "previous_receipt_sha256": null,
+      "input": {
+        "asset": {
+          "asset_id": "P9-DEMO-07",
+          "asset_category": "AGRICULTURE",
+          "methodology_id": "AG-005",
+          "methodology_version": "AG-005 v1.0",
+          "evidence_package_sha256": "f3897faccf2ec7aa3d27e4bdaee4fb433dd3c9c1270b3541e13ba32a4570fa89",
+          "source_record_sha256": "36a8693eb04b30c8c65561d303fbef6dca676eebdfd429a8bd1a3d5b159d9501",
+          "verification_status": "REFERENCE",
+          "quantity": "2.24",
+          "quantity_unit": "tCO2e",
+          "rights_status": "UNVERIFIED"
+        },
+        "valuation_scenario_id": "p80-demo",
+        "asset_symbol": "SIM-USD",
+        "fee_bps": "25",
+        "quantity_override": null,
+        "snapshot": {
+          "price": {
+            "pair": "JPY/tCO2e",
+            "source": "P80 synthetic scenario",
+            "source_kind": "SYNTHETIC",
+            "observed_at": "2026-11-21T00:00:00.000Z",
+            "as_of": "2026-11-21T00:00:00.000Z",
+            "expires_at": "2026-11-21T01:00:00.000Z",
+            "market_price": null,
+            "fixed_redemption_value": null,
+            "user_assumption": "1500",
+            "selected": "user_assumption",
+            "conflicting": false
+          },
+          "fx": {
+            "pair": "JPY/USD",
+            "source": "P80 synthetic scenario",
+            "source_kind": "SYNTHETIC",
+            "observed_at": "2026-11-21T00:00:00.000Z",
+            "as_of": "2026-11-21T00:00:00.000Z",
+            "expires_at": "2026-11-21T01:00:00.000Z",
+            "market_price": null,
+            "fixed_redemption_value": null,
+            "user_assumption": "150.25",
+            "selected": "user_assumption",
+            "conflicting": false
+          },
+          "peg": {
+            "pair": "USD/SIM-USD",
+            "source": "P80 synthetic scenario",
+            "source_kind": "SYNTHETIC",
+            "observed_at": "2026-11-21T00:00:00.000Z",
+            "as_of": "2026-11-21T00:00:00.000Z",
+            "expires_at": "2026-11-21T01:00:00.000Z",
+            "market_price": null,
+            "fixed_redemption_value": null,
+            "user_assumption": "1",
+            "selected": "user_assumption",
+            "conflicting": false
+          }
+        }
+      },
+      "states": {
+        "evidence": "VALID",
+        "price": "VALID",
+        "fx": "VALID",
+        "peg": "VALID"
+      },
+      "status": "VALID",
+      "quote": {
+        "eligible_quantity": "2.24",
+        "quantity_unit": "tCO2e",
+        "quantity_basis": "SOURCE_ESTIMATE",
+        "assumed_unit_price_jpy": "1500",
+        "price_source": "P80 synthetic scenario",
+        "price_observed_at": "2026-11-21T00:00:00.000Z",
+        "price_as_of": "2026-11-21T00:00:00.000Z",
+        "reference_value_jpy": "3360",
+        "fx_principal_jpy": "3360",
+        "reference_value_usd": "22.362728",
+        "base_currency": "JPY",
+        "quote_currency": "USD",
+        "asset_symbol": "SIM-USD",
+        "issuer_reference": "UNKNOWN",
+        "network_reference": "UNKNOWN",
+        "chain_id": "UNKNOWN",
+        "token_contract_reference": "UNKNOWN",
+        "token_decimals": "UNKNOWN",
+        "reference_decimals": 6,
+        "fx_rate": "150.25",
+        "fx_source": "P80 synthetic scenario",
+        "fx_timestamp": "2026-11-21T00:00:00.000Z",
+        "peg_reference": "1",
+        "peg_source": "P80 synthetic scenario",
+        "peg_timestamp": "2026-11-21T00:00:00.000Z",
+        "gross_amount": "22.362728",
+        "estimated_fee": "0.055906",
+        "net_amount": "22.306822",
+        "rounding_policy": "FLOOR_JPY_THEN_FLOOR_MICRO_UNITS_AND_FEE",
+        "quote_expiry": "2026-11-21T01:00:00.000Z"
+      },
+      "receipt_sha256": "9340b70af983a29ca66b3a17fa7a825d76074ba7e403d0d5867816dc01d33cf3"
+    }
+  ]
+]

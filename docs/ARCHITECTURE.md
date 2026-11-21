@@ -39,3 +39,7 @@ Actual rights custody, interoperability with NaFT live data, scientific accuracy
 ## IP boundary
 
 NFTM is independently authored here: no NaFT MIT-licensed implementation is vendored. A future shared dependency would preserve the original MIT attribution and notice, without automatically licensing NFTM's new source. Original data licensing must be checked separately.
+
+## Valuation book
+
+The [v1 wire adapter](P80_VALUATION.md) consumes exported JSON and a separately maintained head pin per synthetic listing. It delegates unit conversion to the same quoteSimulatedStableUnits function as the legacy book. Registry, order priority, duplicate sale and retirement checks stay in runMarketScenario. Each match carries both the legacy synthetic result and the net reference settlement in the selected scenario denomination.
