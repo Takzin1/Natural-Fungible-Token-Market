@@ -61,7 +61,7 @@ test('duplicate evidence across synthetic serials and non-contiguous revisions a
 });
 test('issuer metadata cannot introduce an executable right, wrong pair, or mismatched verified quantity',()=>{
   for (const mutate of [r=>r.formal_certification=true,r=>r.input.asset.rights_status='ISSUED',
-    r=>r.quote.quote_currency='JPY',r=>r.input.quantity_override='100']) {
+    r=>r.quote.quote_currency='JPY',r=>r.input.quantity_override='100',r=>r.input.snapshot.price.source='UNKNOWN']) {
     const [s,b,h]=fixture(),r=h[0][0];mutate(r);sign(r);b[0].current_receipt_sha256=r.receipt_sha256;
     assert.throws(()=>runValuationBook(s,b,h,at),/BLOCKED/);
   }

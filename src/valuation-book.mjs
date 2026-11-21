@@ -48,7 +48,8 @@ function inspect(r) {
     snap.fx?.pair === 'JPY/USD' && snap.price?.pair === 'JPY/tCO2e' &&
     snap.peg?.pair === q.quote_currency + '/' + i.asset_symbol,'CURRENCY');
   for (const o of Object.values(snap)) {
-    check(o && o.source.trim() && ['USER_INPUT','SYNTHETIC'].includes(o.source_kind) && !o.conflicting &&
+    check(o && o.source.trim() && o.source.trim().toUpperCase() !== 'UNKNOWN' &&
+      ['USER_INPUT','SYNTHETIC'].includes(o.source_kind) && !o.conflicting &&
       date(o.as_of) <= date(o.observed_at) && o.observed_at <= r.as_of && r.as_of < date(o.expires_at),'OBSERVATION');
   }
   check(q.quote_expiry === Object.values(snap).map(o=>o.expires_at).sort()[0] &&
